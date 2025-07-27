@@ -16,7 +16,7 @@ export default async function CtaComponent({ cta }: CtaComponentProps) {
         className="w-full bg-red-700 hover:bg-red-800 active:bg-red-900 
                   shadow-[inset_0_-4px_0_rgba(0,0,0,0.2)] 
                   hover:shadow-[inset_0_-4px_0_rgba(0,0,0,0.3)]
-                  rounded-sm py-5 mt-2 transition-all duration-200"
+                  rounded-sm py-5 mt-2 transition-all duration-200 cursor-pointer"
       >
         <TypographyMedium className="font-semibold text-white">
           {cta?.name}

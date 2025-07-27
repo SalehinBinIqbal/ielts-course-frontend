@@ -5,18 +5,7 @@ import {
   TypographyMedium,
   TypographyMuted,
 } from "@/components/ui/typography";
-
-interface CourseCardProps {
-  data: {
-    name: string;
-    values: Array<{
-      title: string;
-      icon: string;
-      subtitle: string;
-      id: string;
-    }>;
-  };
-}
+import type { CourseCardProps } from "@/types/data-type";
 
 export default function CourseCard({ data }: CourseCardProps) {
   return (

@@ -2,18 +2,7 @@ import Image from "next/image";
 
 import { TypographyH3, TypographyH4 } from "@/components/ui/typography";
 import { Separator } from "@/components/ui/separator";
-
-interface InstructorCardProps {
-  data: {
-    name: string;
-    values: Array<{
-      description: string;
-      image: string;
-      name: string;
-      slug: string;
-    }>;
-  };
-}
+import type { InstructorCardProps } from "@/types/data-type";
 
 export default function InstructorCard({ data }: InstructorCardProps) {
   return (
@@ -23,10 +12,10 @@ export default function InstructorCard({ data }: InstructorCardProps) {
         <div className="md:border md:rounded-lg md:py-5 md:px-3">
           {data.values.map((item, index) => (
             <div key={index}>
-              <div className="flex gap-4 mt-2 items-center ">
+              <div className="flex gap-4 mt-2 items-center">
                 <Image
                   src={item.image}
-                  alt={item.slug}
+                  alt={item.name}
                   width={84}
                   height={84}
                   className="w-21 h-21 rounded-full object-cover"

@@ -1,12 +1,6 @@
 import CtaComponent from "@/components/cta-component";
 import { cn } from "@/lib/utils";
-
-interface CtaCardProps {
-  cta: {
-    name: string;
-  };
-  className?: string;
-}
+import type { CtaCardProps } from "@/types/data-type";
 
 export default function CtaCard({ cta, className }: CtaCardProps) {
   return (

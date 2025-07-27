@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 import { useTranslations } from "next-intl";
 import { Search } from "lucide-react";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname } from "@/i18n/navigation";
 
 import {
   Select,
@@ -15,48 +15,47 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Input } from "@/components/ui/input";
-
-interface NavMenuProps {
-  initialLanguage: string;
-}
+import type { NavMenuProps } from "@/types/data-type";
 
 export default function NavMenu({ initialLanguage }: NavMenuProps) {
   const t = useTranslations();
   const pathname = usePathname();
   const router = useRouter();
-
   const [selectedLanguage, setSelectedLanguage] =
     useState<string>(initialLanguage);
 
   const handleLanguageChange = (value: string) => {
     setSelectedLanguage(value);
     document.cookie = `lang=${value}; path=/; max-age=3600`;
-    router.push(pathname);
+    router.push(pathname, { locale: value });
   };
+
   return (
-    <div className="flex gap-2 items-center justify-between px-3 xl:px-32 2xl:px-64 py-3 bg-white sticky top-0 z-50 w-full border-b border-gray-50 shadow-sm">
+    <nav className="flex gap-2 items-center justify-between px-3 xl:px-32 2xl:px-64 py-3 bg-white sticky top-0 z-50 w-full border-b border-gray-50 shadow-sm">
       <div className="flex gap-2 items-center">
-        <Link href="/">
+        <Link href="/" aria-label="Home">
           <Image
             src="/10mslogo.svg"
-            alt="Logo"
+            alt="10ms Logo"
             width={100}
             height={40}
             className="w-[100px] h-[40px]"
+            priority
           />
         </Link>
-        <div className="hidden sm:block w-[350px] h-full">
+        <div className="hidden sm:block w-[350px]">
           <Input
-            className="rounded-4xl"
+            className="rounded-full"
             startIcon={Search}
             placeholder={t("searchText")}
+            aria-label={t("searchText")}
           />
         </div>
       </div>
 
-      <div>
+      <div className="min-w-[120px]">
         <Select value={selectedLanguage} onValueChange={handleLanguageChange}>
-          <SelectTrigger>
+          <SelectTrigger className="min-w-[120px]">
             <SelectValue>
               {selectedLanguage === "en" ? "English" : "বাংলা"}
             </SelectValue>
@@ -67,6 +66,6 @@ export default function NavMenu({ initialLanguage }: NavMenuProps) {
           </SelectContent>
         </Select>
       </div>
-    </div>
+    </nav>
   );
 }

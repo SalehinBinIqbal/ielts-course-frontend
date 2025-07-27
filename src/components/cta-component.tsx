@@ -2,20 +2,26 @@ import { getTranslations } from "next-intl/server";
 
 import { Button } from "@/components/ui/button";
 import { TypographyH3, TypographyMedium } from "@/components/ui/typography";
+import type { CtaComponentProps } from "@/types/data-type";
 
-interface CtaComponentProps {
-  cta: {
-    name: string;
-  };
-}
 export default async function CtaComponent({ cta }: CtaComponentProps) {
   const t = await getTranslations();
+
   return (
-    <div className="w-full mt-2 pt-2 pb-5">
-      <TypographyH3>৳{t("priceValue")}</TypographyH3>
-      <Button className="w-full bg-red-700 hover:bg-red-800 not-hover:shadow-[inset_0_-4px_0_rgba(0,0,0,0.2)] rounded-sm py-5 mt-2">
-        <TypographyMedium>{cta?.name}</TypographyMedium>
+    <section className="w-full mt-2 pt-2 pb-5" aria-labelledby="cta-heading">
+      <TypographyH3 id="cta-heading" className="text-gray-900">
+        ৳{t("priceValue")}
+      </TypographyH3>
+      <Button
+        className="w-full bg-red-700 hover:bg-red-800 active:bg-red-900 
+                  shadow-[inset_0_-4px_0_rgba(0,0,0,0.2)] 
+                  hover:shadow-[inset_0_-4px_0_rgba(0,0,0,0.3)]
+                  rounded-sm py-5 mt-2 transition-all duration-200"
+      >
+        <TypographyMedium className="font-semibold text-white">
+          {cta?.name}
+        </TypographyMedium>
       </Button>
-    </div>
+    </section>
   );
 }

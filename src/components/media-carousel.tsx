@@ -12,15 +12,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "./ui/carousel";
-
-interface MediaCarouselProps {
-  carouselItems: Array<{
-    name: string;
-    resource_type: string;
-    resource_value: string;
-    thumbnail_url?: string;
-  }>;
-}
+import type { MediaCarouselProps } from "@/types/data-type";
 
 export default function MediaCarousel({ carouselItems }: MediaCarouselProps) {
   const videoRefs = useRef<(HTMLIFrameElement | null)[]>([]);

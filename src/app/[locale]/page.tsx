@@ -12,14 +12,9 @@ import LearningCard from "./_components/learning-card";
 import FeatureCard from "./_components/feature-card";
 import CourseDetailsCard from "./_components/course-details-card";
 import SideMediaCard from "./_components/side-media-card";
-// import useGetDatas from "@/actions/getdatas";
 import { fetchCourseData } from "@/actions/getdatas";
 
 export default async function Home() {
-  // const local = await getLocale();
-
-  // const data = await useGetDatas();
-
   const [local, dataResponse] = await Promise.all([
     getLocale(),
     fetchCourseData(),
@@ -57,13 +52,6 @@ export default async function Home() {
       <LearningCard data={data?.sections[5]} />
       <FeatureCard data={data?.sections[8]} />
       <CourseDetailsCard data={data?.sections[7]} />
-      {/* <div className="w-full transform -translate-y-full">
-        <SideMediaCard
-          media={data?.media}
-          cta={data?.cta_text}
-          checkLists={data?.checklist}
-        />
-      </div> */}
     </main>
   );
 }

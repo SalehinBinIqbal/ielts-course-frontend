@@ -7,17 +7,7 @@ import {
   TypographySmall,
 } from "@/components/ui/typography";
 import { Separator } from "@/components/ui/separator";
-
-interface FeatureCardProps {
-  data: {
-    name: string;
-    values: Array<{
-      file_url: string;
-      title: string;
-      checklist: string[];
-    }>;
-  };
-}
+import type { FeatureCardProps } from "@/types/data-type";
 
 export default function FeatureCard({ data }: FeatureCardProps) {
   return (
@@ -47,14 +37,15 @@ export default function FeatureCard({ data }: FeatureCardProps) {
                 <div className="sm:w-1/2 flex justify-center">
                   <Image
                     src={item.file_url}
-                    alt="check"
+                    alt={item.title}
                     width={150}
                     height={150}
+                    className="object-contain"
                   />
                 </div>
               </div>
               {index !== data.values.length - 1 && (
-                <Separator className="mb-4 mt-4 sm:mt-0" />
+                <Separator className="mb-4 mt-4" />
               )}
             </div>
           ))}

@@ -1,15 +1,6 @@
 import CheckListsComponent from "@/components/check-lists-component";
 import { cn } from "@/lib/utils";
-
-interface ChecklistsCardProps {
-  language?: string;
-  checkLists: Array<{
-    icon: string;
-    id: string;
-    text: string;
-  }>;
-  className?: string;
-}
+import type { ChecklistsCardProps } from "@/types/data-type";
 
 export default function ChecklistsCard({
   language,

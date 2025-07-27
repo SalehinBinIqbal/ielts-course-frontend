@@ -1,23 +1,11 @@
-import Image from "next/image";
-
-import { TypographyH3, TypographyH4 } from "@/components/ui/typography";
-import { Separator } from "@/components/ui/separator";
+import { TypographyH3 } from "@/components/ui/typography";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
-
-interface CourseDetailsCardProps {
-  data: {
-    name: string;
-    values: Array<{
-      description: string;
-      title: string;
-    }>;
-  };
-}
+import type { CourseDetailsCardProps } from "@/types/data-type";
 
 export default function CourseDetailsCard({ data }: CourseDetailsCardProps) {
   return (

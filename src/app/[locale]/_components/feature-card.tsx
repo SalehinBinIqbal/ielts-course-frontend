@@ -38,8 +38,8 @@ export default function FeatureCard({ data }: FeatureCardProps) {
                   <Image
                     src={item.file_url}
                     alt={item.title}
-                    width={150}
-                    height={150}
+                    width={200}
+                    height={200}
                     className="object-contain"
                   />
                 </div>

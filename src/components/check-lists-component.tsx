@@ -17,7 +17,7 @@ export default async function CheckListsComponent({
           <li key={item.id} className="flex gap-3 items-start">
             <Image
               src={item.icon}
-              alt="" // Decorative icon
+              alt=""
               width={20}
               height={20}
               className="w-5 h-5 mt-0.5 flex-shrink-0"

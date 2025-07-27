@@ -29,7 +29,6 @@ export interface NamedValuePair<T> {
 // ======================
 
 export interface ChecklistsCardProps {
-    language?: string;
     checkLists: ChecklistItem[];
     className?: string;
 }
@@ -87,10 +86,13 @@ export interface NavMenuProps {
     initialLanguage: string;
 }
 
-export interface SideMediaCardProps {
-    media: MediaItem[];
+export interface SideCtaChecklistCardProps {
     cta: Cta;
     checkLists: ChecklistItem[];
+}
+
+export interface SideMediaCardProps extends SideCtaChecklistCardProps {
+    media: MediaItem[];
 }
 
 // ======================

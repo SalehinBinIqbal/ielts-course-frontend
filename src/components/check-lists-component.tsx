@@ -1,13 +1,13 @@
 import Image from "next/image";
-import { getTranslations } from "next-intl/server";
+import { useTranslations } from "next-intl";
 
 import { TypographyH4, TypographyMedium } from "@/components/ui/typography";
 import type { CheckListsComponentProps } from "@/types/data-type";
 
-export default async function CheckListsComponent({
+export default function CheckListsComponent({
   checkLists,
 }: CheckListsComponentProps) {
-  const t = await getTranslations();
+  const t = useTranslations();
 
   return (
     <section className="w-full mt-2" aria-labelledby="checklist-heading">

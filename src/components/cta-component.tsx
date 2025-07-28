@@ -1,11 +1,13 @@
-import { getTranslations } from "next-intl/server";
+"use client";
+
+import { useTranslations } from "next-intl";
 
 import { Button } from "@/components/ui/button";
 import { TypographyH3, TypographyMedium } from "@/components/ui/typography";
 import type { CtaComponentProps } from "@/types/data-type";
 
-export default async function CtaComponent({ cta }: CtaComponentProps) {
-  const t = await getTranslations();
+export default function CtaComponent({ cta }: CtaComponentProps) {
+  const t = useTranslations();
 
   return (
     <section className="w-full mt-2 pt-2 pb-5" aria-labelledby="cta-heading">
